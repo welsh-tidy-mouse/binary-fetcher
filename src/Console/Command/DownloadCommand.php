@@ -46,7 +46,7 @@ class DownloadCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         try {
-            $binaryProvdier = $this->providers[$input->getArgument('binary')] ?? throw new UnknowBinaryProviderException($input->getArgument('binary'));
+            $binaryProvdier = $this->getBinaryProvider($input->getArgument('binary'));
 
             $fetcher = new BinaryFetcher($input->getOption('dir'), HttpClient::create(), notifier: new ConsoleNotifier($input, $output));
             $fetcher->download($binaryProvdier, $input->getArgument('version'));
@@ -79,5 +79,17 @@ class DownloadCommand extends Command
 
             return Command::FAILURE;
         }
+    }
+
+    protected function getBinaryProvider(string $providerNameOrClass): BinaryProviderInterface
+    {
+        if (class_exists($providerNameOrClass)) {
+            /** @var class-string<BinaryProviderInterface> $providerNameOrClass */
+            return new $providerNameOrClass();
+        }
+
+        return
+            $this->providers[$providerNameOrClass]
+            ?? throw new UnknowBinaryProviderException($providerNameOrClass);
     }
 }

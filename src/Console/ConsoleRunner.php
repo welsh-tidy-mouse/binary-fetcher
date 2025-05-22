@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WelshTidyMouse\BinaryFetcher\Console;
 
+use Exception;
 use ReflectionClass;
 use Symfony\Component\Console\Application;
 use Throwable;
@@ -12,6 +13,11 @@ use WelshTidyMouse\BinaryFetcher\Contract\BinaryProviderInterface;
 
 final class ConsoleRunner
 {
+    /**
+     * @param string[] $classmap
+     *
+     * @throws Exception
+     */
     public static function run(array $classmap): void
     {
         $providers = self::getBinaryProviders($classmap);
@@ -36,6 +42,7 @@ final class ConsoleRunner
 
             try {
                 $reflection = new ReflectionClass($class);
+                /** @var BinaryProviderInterface $instance */
                 $instance = $reflection->newInstance();
                 $providers[$instance->getName()] = $instance;
             } catch (Throwable) {
