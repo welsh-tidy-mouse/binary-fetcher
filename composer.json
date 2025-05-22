@@ -1,6 +1,6 @@
 {
   "name": "welsh-tidy-mouse/binary-fetcher",
-  "description": "PHP tool to fetch GitHub binaries for the current platform",
+  "description": "Tool to download binaries depending on your platform (OS + architecture).",
   "type": "library",
   "license": "WTFPL",
   "require": {
