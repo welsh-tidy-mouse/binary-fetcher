@@ -29,7 +29,13 @@
     "test": "phpunit tests",
     "lint": "phpstan analyse src tests",
     "cs": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes",
-    "md": "phpmd src,tests text phpmd.xml"
+    "md": "phpmd src,tests text phpmd.xml",
+    "check": [
+      "@cs",
+      "@test",
+      "@lint",
+      "@md"
+    ]
   },
   "bin": [
     "bin/binary-fetcher"
