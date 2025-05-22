@@ -1,6 +1,6 @@
 # Binary Fetcher
 
-[![CI](https://github.com/welsh-tidy-mouse/binary-fetcher/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yourname/binary-fetcher/actions/workflows/ci.yml)
+[![CI](https://github.com/welsh-tidy-mouse/binary-fetcher/actions/workflows/pipeline.yml/badge.svg)](https://github.com/welsh-tidy-mouse/binary-fetcher/actions/workflows/pipeline.yml)
 
 Tool to download binaries depending on your platform (OS + architecture).
 
