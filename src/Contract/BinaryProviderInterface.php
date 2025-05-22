@@ -10,6 +10,8 @@ use WelshTidyMouse\BinaryFetcher\Type\SystemArchType;
 
 interface BinaryProviderInterface
 {
+    public function __construct();
+
     public function getName(): string;
 
     /**
