@@ -22,7 +22,12 @@ composer require welsh-tidy-mouse/binary-fetcher
 ### CLI
 
 ```bash
-php bin/binary-fetcher "\MyVendo\BinaryProvider\MyBinaryProvider" [version] [--dir="/my/download/dir"]
+php bin/binary-fetcher download "\MyVendo\BinaryProvider\MyBinaryProvider" [version] [--dir="/my/download/dir"]
+```
+or with composer
+
+```bash
+composer exec binary-fetcher download "\MyVendo\BinaryProvider\MyBinaryProvider" [version] [--dir="/my/download/dir"]
 ```
 
 ### PHP
