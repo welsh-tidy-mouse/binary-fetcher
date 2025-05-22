@@ -39,8 +39,8 @@ $binaryName = $fetcher->download(new \MyVendo\BinaryProvider\MyBinaryProvider, '
 
 ## 🧪 Quality
 
-- `composer test`
-- `composer lint`
-- `composer cs`
-- `composer md`
+- `composer test` to run PhpUnit tests
+- `composer lint` to run PHPStan
+- `composer cs` to fix files with Code Sniffer
+- `composer md`to run PHPMD
 - `composer check` for all commands above
