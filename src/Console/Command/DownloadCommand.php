@@ -25,7 +25,7 @@ class DownloadCommand extends Command
     /**
      * @param array<string,BinaryProviderInterface> $providers
      */
-    public function __construct(private readonly array $providers)
+    public function __construct(private readonly array $providers = [])
     {
         parent::__construct();
     }
