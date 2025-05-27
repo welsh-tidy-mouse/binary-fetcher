@@ -15,7 +15,7 @@ readonly class PlatformDetector implements PlatformDetectorInterface
         $os = strtolower(\PHP_OS);
 
         return match ($os) {
-            'win' => OsType::WINDOWS,
+            'win', 'winnt' => OsType::WINDOWS,
             'darwin' => OsType::MACOS,
             'linux' => file_exists('/etc/alpine-release') ? OsType::ALPINE_LINUX : OsType::LINUX,
             default => throw new RuntimeException('Unsupported OS: ' . $os),
@@ -24,7 +24,7 @@ readonly class PlatformDetector implements PlatformDetectorInterface
 
     public function getArch(): SystemArchType
     {
-        $arch = php_uname('m');
+        $arch = strtolower(php_uname('m'));
 
         return match (true) {
             str_contains($arch, 'aarch64'), str_contains($arch, 'arm64') => SystemArchType::ARM_64,
