@@ -1,6 +1,6 @@
 # Binary Fetcher
 
-[![CI](https://github.com/welsh-tidy-mouse/binary-fetcher/actions/workflows/pipeline.yml/badge.svg)](https://github.com/welsh-tidy-mouse/binary-fetcher/actions/workflows/pipeline.yml)
+[![Tests](https://github.com/welsh-tidy-mouse/binary-fetcher/actions/workflows/tests.yml/badge.svg)](https://github.com/welsh-tidy-mouse/binary-fetcher/actions/workflows/tests.yml)
 [![Binary Fetcher license](https://img.shields.io/github/license/welsh-tidy-mouse/binary-fetcher?public)](https://github.com/welsh-tidy-mouse/binary-fetcher/blob/master/LICENSE)
 
 Tool to download binaries depending on your platform (OS + architecture).
@@ -44,3 +44,7 @@ $binaryName = $fetcher->download(new \MyVendo\BinaryProvider\MyBinaryProvider, '
 - `composer cs` to fix files with Code Sniffer
 - `composer md`to run PHPMD
 - `composer check` for all commands above
+
+---
+
+🐁 This package is part of the **Welsh Tidy Mouse** ecosystem.
