@@ -64,7 +64,7 @@ readonly class BinaryFetcher
             $assetFileName = basename($downlodableAssetUrl);
             $response = $this->httpClient->request('GET', $downlodableAssetUrl, [
                 'headers' => self::DEFAULT_HEADERS,
-                'on_progress' => fn (int $dlNow, int $dlSize) => $this->notifier?->progress($dlSize, $dlNow),
+                'on_progress' => fn (int $dlNow, int $dlSize) => $this->notifier?->progress($assetFileName, $dlSize, $dlNow),
             ]);
 
             $this->filesystem->dumpFile(Path::join($this->downloadDirPath, $assetFileName), $response->getContent());

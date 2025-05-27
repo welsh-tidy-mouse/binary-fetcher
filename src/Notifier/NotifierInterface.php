@@ -11,7 +11,7 @@ interface NotifierInterface
 {
     public function start(string $name, string $version, OsType $os, SystemArchType $arch): void;
 
-    public function progress(int $dlSize, int $dlNow): void;
+    public function progress(string $assetFileName, int $dlSize, int $dlNow): void;
 
     public function end(string $binaryFileName, string $downloadDirPath): void;
 }

@@ -33,9 +33,11 @@ class ConsoleNotifier implements NotifierInterface
         ]);
     }
 
-    public function progress(int $dlSize, int $dlNow): void
+    public function progress(string $assetFileName, int $dlSize, int $dlNow): void
     {
         if (null === $this->progressBar && $dlSize > 0) {
+            $this->io->writeln(\sprintf('Find "%s" asset meet requirement. Start downloading', $assetFileName));
+            $this->io->newLine();
             $this->progressBar = $this->io->createProgressBar();
             $this->progressBar->setPlaceholderFormatter('current', fn (ProgressBar $pb) => $this->getHumanFilesize($pb->getProgress()));
             $this->progressBar->setPlaceholderFormatter('max', fn (ProgressBar $pb) => $this->getHumanFilesize($pb->getMaxSteps()));
