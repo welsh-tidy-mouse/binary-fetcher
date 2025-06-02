@@ -14,14 +14,13 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use WelshTidyMouse\BinaryFetcher\Contract\BinaryProviderInterface;
 use WelshTidyMouse\BinaryFetcher\Exception\BinaryAssetNotFountException;
 use WelshTidyMouse\BinaryFetcher\Exception\BinaryAssetUnavailableException;
-use WelshTidyMouse\BinaryFetcher\Exception\BinaryProviderException;
 use WelshTidyMouse\BinaryFetcher\Exception\BinaryProviderServiceException;
 use WelshTidyMouse\BinaryFetcher\Exception\NoWritableDirectoryException;
 use WelshTidyMouse\BinaryFetcher\Notifier\NotifierInterface;
 use WelshTidyMouse\BinaryFetcher\Tool\PlatformDetector;
 use WelshTidyMouse\BinaryFetcher\Tool\PlatformDetectorInterface;
 
-readonly class BinaryFetcher
+readonly class BinaryFetcher implements BinaryFetcherInterface
 {
     public const array DEFAULT_HEADERS = [
         'Accept' => 'application/octet-stream',
@@ -38,9 +37,7 @@ readonly class BinaryFetcher
     }
 
     /**
-     * @throws BinaryProviderServiceException
-     * @throws BinaryAssetUnavailableException
-     * @throws BinaryProviderException
+     * @inheritdoc
      */
     public function download(
         BinaryProviderInterface $binaryProvider,
