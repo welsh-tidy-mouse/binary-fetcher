@@ -50,7 +50,7 @@ readonly class BinaryFetcher implements BinaryFetcherInterface
             throw new NoWritableDirectoryException();
         }
 
-        $this->notifier?->start($binaryProvider->getName(), $version, $os, $arch);
+        $this->notifier?->start($binaryProvider::getName(), $version, $os, $arch);
 
         $downlodableAssetUrl = $binaryProvider->getDownloadableAssetUrl($version, $os, $arch);
         if (null === $downlodableAssetUrl) {
