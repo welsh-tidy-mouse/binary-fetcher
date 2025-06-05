@@ -12,7 +12,7 @@ interface BinaryProviderInterface
 {
     public function __construct();
 
-    public function getName(): string;
+    public static function getName(): string;
 
     /**
      * @throws BinaryProviderException
